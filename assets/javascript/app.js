@@ -1,20 +1,19 @@
 $(document).ready(function() {
 
-    // Global Variables
+// Global Variables
 
-        //counter variables
+    //Counter Variables
     var gameTimer = 10;
     var guessRight = 0;
     var guessWrong = 0;
     var timesUp = 0;
-    var questionNumber = 0;
+    var questionNumber = 1;
 
-        //empty variables
+    //Empty Variables
     var rightAnswer = "";
     var guessedAnswer = "";
 
-    // All Questions
-
+    // All Questions 
     var gameQuestions = {
 
         "q1": {
@@ -77,4 +76,29 @@ $(document).ready(function() {
             answer: "Kyoichi Sudo"
         }
     }
+
+//Load Game
+$("#start").click(function(){
+    //resetGame()
+    //displayQuestion(questionNumber)
+console.log(questionNumber)
+});
+
+//Reset Game
+
+//Display Questions
+
+//Correct Guess
+
+//Incorrect Guess
+
+//Question Timer
+
+//Times Up
+
+//Game Over
+
+
+
+
 });
