@@ -79,12 +79,17 @@ $(document).ready(function() {
 
 //Load Game
 $("#start").click(function(){
-    //resetGame()
+    resetGame()
     //displayQuestion(questionNumber)
 console.log(questionNumber)
 });
 
 //Reset Game
+function resetGame() {
+    $("#questions").empty();
+    $("#answers").empty();
+    questionNumber = 1;
+}
 
 //Display Questions
 
