@@ -1,4 +1,17 @@
-$(document).ready(function(){
+$(document).ready(function() {
+
+    // Global Variables
+
+        //counter variables
+    var gameTimer = 10;
+    var guessRight = 0;
+    var guessWrong = 0;
+    var timesUp = 0;
+    var questionNumber = 0;
+
+        //empty variables
+    var rightAnswer = "";
+    var guessedAnswer = "";
 
     // All Questions
 
