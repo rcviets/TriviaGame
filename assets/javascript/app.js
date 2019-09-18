@@ -6,12 +6,14 @@ $(document).ready(function() {
     var gameTimer = 10;
     var guessRight = 0;
     var guessWrong = 0;
-    var timesUp = 0;
+    var timeUp = 0;
     var questionNumber = 1;
+
 
     //Empty Variables
     var rightAnswer = "";
     var guessedAnswer = "";
+    var intervalId;
 
     // All Questions 
     var gameQuestions = {
@@ -110,7 +112,7 @@ function playGame() {
 
         //Push Question on screen
         $('#question').text(newQuestion);
-            //questionTimer(); 
+            questionTimer(); 
             console.log(newQuestion)
         
         //Loop through and push possible answers
@@ -135,13 +137,11 @@ function playGame() {
                 correctGuess();
                 setTimeout(function(){
                     playGame(questionNumber)}, 3000);
-                //questionTimer();
             } else {
                 questionNumber++;
                 incorrectGuess();
                 setTimeout(function(){
                     playGame(questionNumber)}, 3000);
-                //questionTimer();
             }
             console.log(chosenAnswer)
         })
@@ -164,8 +164,37 @@ function incorrectGuess() {
 }
 
 //Question Timer
+function questionTimer () {
+    clearInterval(intervalId)
+    intervalId = setInterval(decrement, 1000);
+}
+function decrement(){
+    gameTimer--;
+    $('#timer').text(gameTimer)
+
+    if (gameTimer === 0) {
+        timesUp();
+    }
+}
 
 //Times Up
+function timesUp() {
+    timeUp++;
+    stopTimer();
+    gameTimer = 10;
+    clearScreen();
+    $('#timer').text(gameTimer);
+    questionNumber++;
+    setTimeout(function(){
+        playGame(questionNumber)}, 3000);
+    $('#question').text("You've missed a timed checkpoint!");
+    $('#answers').html('Answer: ' + gameQuestions[questionNumber].answer);
+    console.log(gameQuestions[questionNumber].answer)
+}
+
+function stopTimer() {
+    clearInterval(intervalId)
+}
 
 //Game Over
 
