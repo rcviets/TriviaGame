@@ -119,11 +119,27 @@ function playGame() {
             var answerButtons = $("<button>");
             answerButtons.attr('data-value', possibleAnswers[i]);
             answerButtons.text(possibleAnswers[i]);
+            answerButtons.addClass("chooseAnswer");
 
             answerDiv.append(answerButtons);
             $("#answers").append(answerDiv);
             console.log(possibleAnswers)
         }
+
+        $(".chooseAnswer").click(function() {
+            var chosenAnswer = $(this).attr('data-value');
+
+            if (chosenAnswer === correctAnswer) {
+                questionNumber++;
+                //correctGuess();
+                //questionTimer();
+            } else {
+                questionNumber++;
+                //incorrectGuess();
+                //questionTimer();
+            }
+            console.log(chosenAnswer)
+        })
             
     }
 }
