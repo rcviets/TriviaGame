@@ -124,6 +124,7 @@ function playGame() {
             answerDiv.append(answerButtons);
             $("#answers").append(answerDiv);
             console.log(possibleAnswers)
+            console.log(correctAnswer)
         }
 
         $(".chooseAnswer").click(function() {
@@ -131,11 +132,11 @@ function playGame() {
 
             if (chosenAnswer === correctAnswer) {
                 questionNumber++;
-                //correctGuess();
+                correctGuess();
                 //questionTimer();
             } else {
                 questionNumber++;
-                //incorrectGuess();
+                incorrectGuess();
                 //questionTimer();
             }
             console.log(chosenAnswer)
@@ -145,8 +146,18 @@ function playGame() {
 }
 
 //Correct Guess
+function correctGuess() {
+    guessRight++;
+    clearScreen();
+    $('#question').text("You're in the lead!");
+}
 
 //Incorrect Guess
+function incorrectGuess() {
+    guessWrong++;
+    clearScreen();
+    $('#question').text("You're falling behind!");
+}
 
 //Question Timer
 
