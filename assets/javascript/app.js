@@ -30,7 +30,7 @@ $(document).ready(function() {
 
         "3": {
             question: "Who is the leader of the Red Suns?",
-            listedAnswers: ['Shingo Shoji', 'Takumi Fujiwara', 'Ryosuke Takashashi', 'Keisuke Takahashi', 'Wataru Akiyama'],
+            listedAnswers: ['Shingo Shoji', 'Takumi Fujiwara', 'Ryosuke Takahashi', 'Keisuke Takahashi', 'Wataru Akiyama'],
             answer: "Ryosuke Takahashi"
         },
 
@@ -81,7 +81,7 @@ $(document).ready(function() {
 $("#start").click(function(){
     $('#start').hide();
     resetGame();
-    playGame();
+    playGame(questionNumber);
 console.log(questionNumber)
 });
 
@@ -133,10 +133,14 @@ function playGame() {
             if (chosenAnswer === correctAnswer) {
                 questionNumber++;
                 correctGuess();
+                setTimeout(function(){
+                    playGame(questionNumber)}, 3000);
                 //questionTimer();
             } else {
                 questionNumber++;
                 incorrectGuess();
+                setTimeout(function(){
+                    playGame(questionNumber)}, 3000);
                 //questionTimer();
             }
             console.log(chosenAnswer)
