@@ -11,8 +11,6 @@ $(document).ready(function() {
 
 
     //Empty Variables
-    var rightAnswer = "";
-    var guessedAnswer = "";
     var intervalId;
 
     // All Questions 
@@ -95,6 +93,7 @@ function resetGame() {
     var guessRight = 0;
     var guessWrong = 0;
     var timeUp = 0;
+    console.log(gameTimer)
 }
 
 //Clear the Screen
@@ -135,14 +134,13 @@ function playGame() {
 
         $(".chooseAnswer").click(function() {
             var chosenAnswer = $(this).attr('data-value');
+            
 
             if (chosenAnswer === correctAnswer) {
-                questionNumber++;
                 correctGuess();
                 setTimeout(function(){
                     playGame(questionNumber)}, 3000);
             } else {
-                questionNumber++;
                 incorrectGuess();
                 setTimeout(function(){
                     playGame(questionNumber)}, 3000);
@@ -161,6 +159,8 @@ function correctGuess() {
     $('#timer').text(gameTimer);
     clearScreen();
     $('#question').text("You're in the lead!");
+    $('#answers').html('Answer: ' + gameQuestions[questionNumber].answer);
+    questionNumber++;
 }
 
 //Incorrect Guess
@@ -171,6 +171,8 @@ function incorrectGuess() {
     $('#timer').text(gameTimer);
     clearScreen();
     $('#question').text("You're falling behind!");
+    $('#answers').html('Answer: ' + gameQuestions[questionNumber].answer);
+    questionNumber++;
 }
 
 //Question Timer
