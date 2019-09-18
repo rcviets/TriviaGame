@@ -200,6 +200,7 @@ function timesUp() {
     $('#question').text("You've missed a timed checkpoint!");
     $('#answers').html('Answer: ' + gameQuestions[questionNumber].answer);
     console.log(gameQuestions[questionNumber].answer)
+    console.log(gameTimer)
 }
 
 function stopTimer() {
