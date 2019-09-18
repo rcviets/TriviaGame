@@ -91,6 +91,10 @@ console.log(questionNumber)
 function resetGame() {
     clearScreen();
     questionNumber = 1;
+    var gameTimer = 10;
+    var guessRight = 0;
+    var guessWrong = 0;
+    var timeUp = 0;
 }
 
 //Clear the Screen
@@ -103,7 +107,7 @@ function clearScreen() {
 function playGame() {
     clearScreen();
     if (questionNumber === 11) {
-        //gameOver();
+        gameOver();
     } else { 
         //Create questions and possible answers/correct answer
         var newQuestion = gameQuestions[questionNumber].question;
@@ -203,7 +207,26 @@ function stopTimer() {
 }
 
 //Game Over
+function gameOver() {
+    clearScreen();
+    $("#start").show();
+    $('#start').text('Race Again?');
+    $("#question").text("Race Over!");
+    $("#answers").append('<p>Right Answers: ' + guessRight + '</p><br>');
+    $('#answers').append('<p>Wrong Answers: ' + guessWrong + '</p><br>');
+    $('#answers').append('<p>Missed Checkpoints: ' + timeUp + '</p>');
 
+    if (guessRight > guessWrong+timeUp) {
+        gameTimer = "You've won the race!";
+    } else {
+        gameTimer = 'You were defeated!';
+    }
+
+    $('#timer').text(gameTimer);
+    
+    
+
+}
 
 
 
