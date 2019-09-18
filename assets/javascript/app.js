@@ -114,10 +114,17 @@ function playGame() {
             console.log(newQuestion)
         
         //Loop through and push possible answers
-        for (var i = 0; i < possibleAnswers.length; i++);
-            $("#answers").append(possibleAnswers);
+        for (var i = 0; i < possibleAnswers.length; i++) {
+            var answerDiv = $("<div>");
+            var answerButtons = $("<button>");
+            answerButtons.attr('data-value', possibleAnswers[i]);
+            answerButtons.text(possibleAnswers[i]);
 
+            answerDiv.append(answerButtons);
+            $("#answers").append(answerDiv);
             console.log(possibleAnswers)
+        }
+            
     }
 }
 
