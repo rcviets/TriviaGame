@@ -152,6 +152,9 @@ function playGame() {
 //Correct Guess
 function correctGuess() {
     guessRight++;
+    stopTimer();
+    gameTimer = 10;
+    $('#timer').text(gameTimer);
     clearScreen();
     $('#question').text("You're in the lead!");
 }
@@ -159,6 +162,9 @@ function correctGuess() {
 //Incorrect Guess
 function incorrectGuess() {
     guessWrong++;
+    stopTimer();
+    gameTimer = 10;
+    $('#timer').text(gameTimer);
     clearScreen();
     $('#question').text("You're falling behind!");
 }
