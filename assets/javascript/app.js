@@ -16,61 +16,61 @@ $(document).ready(function() {
     // All Questions 
     var gameQuestions = {
 
-        "q1": {
+        "1": {
             question: "What car does Takumi Fujiwara drive?",
             listedAnswers: ['RX7', 'Lancer EVO', 'Trueno', 'S2000'],
             answer: "Trueno"
         },
 
-        "q2": {
+        "2": {
             question: "What mountain pass is Takumi's home course?",
             listedAnswers: ['Akina', 'Miyogi', 'Akagi', 'Saitama'],
             answer: "Akina"
         },
 
-        "q3": {
+        "3": {
             question: "Who is the leader of the Red Suns?",
             listedAnswers: ['Shingo Shoji', 'Takumi Fujiwara', 'Ryosuke Takashashi', 'Keisuke Takahashi', 'Wataru Akiyama'],
             answer: "Ryosuke Takahashi"
         },
 
-        "q4": {
+        "4": {
             question: "What is the name of Akina's racing team?",
             listedAnswers: ['Night Kids', 'Project D', 'Red Suns', 'Speed Stars'],
             answer: "Speed Stars"
         },
 
-        "q5": {
+        "5": {
             question: "What was so hard about Takumi's race against the Civic?",
             listedAnswers: ['It was raining', 'The race was uphill', 'One hand was taped to the wheel', 'The opponent had 4-wheel drive'],
             answer: "One hand was taped to the wheel"
         },
 
-        "q6": {
+        "6": {
             question: "What store does Takumi's father own?",
             listedAnswers: ['Ramen shop', 'Tofu shop', 'Tea shop', 'Arcade'],
             answer: "Tofu shop"
         },
 
-        "q7": {
+        "7": {
             question: "How did Takumi learn his unique drifting style?",
             listedAnswers: ['Not spilling the water in his cup', 'Having a navigator', 'Practicing only in the snow', 'Driving on bald tires constantly'],
             answer: "Not spilling the water in his cup"
         },
 
-        "q8": {
+        "8": {
             question: "What is Ryosuke Takahashi's street name?",
             listedAnswers: ['The Ghost of Akina', 'God Hand', 'Akagi\'s White Comet', 'God Foot'],
             answer: "Akagi's White Comet"
         },
 
-        "q9": {
+        "9": {
             question: "Who passed out on their first ride in Takami's car?",
             listedAnswers: ['Natsuki Mogi', 'Koichiro Iketani', 'Bunta Fujiwara', 'Itsuke Takeuchi'],
             answer: "Koichiro Iketani"
         },
 
-        "q10": {
+        "10": {
             question: "Who is the one to finally break Takami's winning streak?",
             listedAnswers: ['Kyoichi Sudo', 'Keisuke Takahashi', 'God Hand', 'Wataru Akiyama'],
             answer: "Kyoichi Sudo"
@@ -79,19 +79,47 @@ $(document).ready(function() {
 
 //Load Game
 $("#start").click(function(){
-    resetGame()
-    //displayQuestion(questionNumber)
+    $('#start').hide();
+    resetGame();
+    playGame();
 console.log(questionNumber)
 });
 
 //Reset Game
 function resetGame() {
-    $("#questions").empty();
-    $("#answers").empty();
+    clearScreen();
     questionNumber = 1;
 }
 
+//Clear the Screen
+function clearScreen() {
+    $("#question").empty();
+    $("#answers").empty();
+}
+
 //Display Questions
+function playGame() {
+    clearScreen();
+    if (questionNumber === 11) {
+        //gameOver();
+    } else { 
+        //Create questions and possible answers/correct answer
+        var newQuestion = gameQuestions[questionNumber].question;
+        var possibleAnswers = gameQuestions[questionNumber].listedAnswers;
+        var correctAnswer = gameQuestions[questionNumber].answer;
+
+        //Push Question on screen
+        $('#question').text(newQuestion);
+            //questionTimer(); 
+            console.log(newQuestion)
+        
+        //Loop through and push possible answers
+        for (var i = 0; i < possibleAnswers.length; i++);
+            $("#answers").append(possibleAnswers);
+
+            console.log(possibleAnswers)
+    }
+}
 
 //Correct Guess
 
