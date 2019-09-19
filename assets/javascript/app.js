@@ -21,70 +21,70 @@ $(document).ready(function() {
             question: "What car does Takumi Fujiwara drive?",
             listedAnswers: ['RX7', 'Lancer EVO', 'Trueno', 'S2000'],
             answer: "Trueno",
-            image: '../images/quest1.jpg'
+            image: 'assets/images/quest1.jpg'
         },
 
         "2": {
             question: "What mountain pass is Takumi's home course?",
             listedAnswers: ['Akina', 'Miyogi', 'Akagi', 'Saitama'],
             answer: "Akina",
-            image: '../images/quest2.png'
+            image: 'assets/images/quest2.png'
         },
 
         "3": {
             question: "Who is the leader of the Red Suns?",
             listedAnswers: ['Shingo Shoji', 'Takumi Fujiwara', 'Ryosuke Takahashi', 'Keisuke Takahashi', 'Wataru Akiyama'],
             answer: "Ryosuke Takahashi",
-            image: '../images/quest3.png'
+            image: 'assets/images/quest3.png'
         },
 
         "4": {
             question: "What is the name of Akina's racing team?",
             listedAnswers: ['Night Kids', 'Project D', 'Red Suns', 'Speed Stars'],
             answer: "Speed Stars",
-            image: '../images/quest4.jpg'
+            image: 'assets/images/quest4.jpg'
         },
 
         "5": {
             question: "What was so hard about Takumi's race against the Civic?",
             listedAnswers: ['It was raining', 'The race was uphill', 'One hand was taped to the wheel', 'The opponent had 4-wheel drive'],
             answer: "One hand was taped to the wheel",
-            image: '../images/quest5.jpg'
+            image: 'assets/images/quest5.jpg'
         },
 
         "6": {
             question: "What store does Takumi's father own?",
             listedAnswers: ['Ramen shop', 'Tofu shop', 'Tea shop', 'Arcade'],
             answer: "Tofu shop",
-            image: '../images/quest6.jpg'
+            image: 'assets/images/quest6.jpg'
         },
 
         "7": {
             question: "How did Takumi learn his unique drifting style?",
             listedAnswers: ['Not spilling the water in his cup', 'Having a navigator', 'Practicing only in the snow', 'Driving on bald tires constantly'],
             answer: "Not spilling the water in his cup",
-            image: '../images/quest7.jpg'
+            image: 'assets/images/quest7.jpg'
         },
 
         "8": {
             question: "What is Ryosuke Takahashi's street name?",
             listedAnswers: ['The Ghost of Akina', 'God Hand', 'Akagi\'s White Comet', 'God Foot'],
             answer: "Akagi's White Comet",
-            image: '../images/quest8.jpg'
+            image: 'assets/images/quest8.jpg'
         },
 
         "9": {
             question: "Who passed out on their first ride in Takami's car?",
             listedAnswers: ['Natsuki Mogi', 'Koichiro Iketani', 'Bunta Fujiwara', 'Itsuke Takeuchi'],
             answer: "Koichiro Iketani",
-            image: '../images/quest9.jpg'
+            image: 'assets/images/quest9.jpg'
         },
 
         "10": {
             question: "Who is the one to finally break Takami's winning streak?",
             listedAnswers: ['Kyoichi Sudo', 'Keisuke Takahashi', 'God Hand', 'Wataru Akiyama'],
             answer: "Kyoichi Sudo",
-            image: '../images/quest10.jpg'
+            image: 'assets/images/quest10.jpg'
         }
     }
 
@@ -124,6 +124,7 @@ function playGame() {
         var possibleAnswers = gameQuestions[questionNumber].listedAnswers;
         var correctAnswer = gameQuestions[questionNumber].answer;
         var answerImage = gameQuestions[questionNumber].image;
+        var displayImage = $('<img>');
 
         //Push Question on screen
         $('#question').text(newQuestion);
@@ -149,10 +150,14 @@ function playGame() {
 
             if (chosenAnswer === correctAnswer) {
                 correctGuess();
+                displayImage.attr('src', answerImage);
+                $('#images').html(displayImage);
                 setTimeout(function(){
                     playGame(questionNumber)}, 3000);
             } else {
                 incorrectGuess();
+                displayImage.attr('src', answerImage);
+                $('#images').html(displayImage);
                 setTimeout(function(){
                     playGame(questionNumber)}, 3000);
             }
