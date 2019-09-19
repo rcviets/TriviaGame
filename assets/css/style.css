@@ -9,3 +9,12 @@ body {
     color:black;
     text-shadow: 2px 2px white;
 }
+#question, #timer {
+    font-size: 50px;
+    text-shadow: 10px 10px black;
+}
+.chooseAnswer {
+    margin: 10px;
+    padding: 2px; 
+    font-size: 20px;
+}
