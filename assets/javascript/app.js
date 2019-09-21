@@ -93,7 +93,6 @@ $("#start").click(function(){
     $('#start').hide();
     resetGame();
     playGame(questionNumber);
-console.log(questionNumber)
 });
 
 //Reset Game
@@ -104,7 +103,6 @@ function resetGame() {
     guessRight = 0;
     guessWrong = 0;
     timeUp = 0;
-    console.log(gameTimer)
 }
 
 //Clear the Screen
@@ -130,7 +128,6 @@ function playGame() {
         //Push Question on screen
         $('#question').text(newQuestion);
             questionTimer(); 
-            console.log(newQuestion)
         
         //Loop through and push possible answers
         for (var i = 0; i < possibleAnswers.length; i++) {
@@ -142,8 +139,6 @@ function playGame() {
 
             answerDiv.append(answerButtons);
             $("#answers").append(answerDiv);
-            console.log(possibleAnswers)
-            console.log(correctAnswer)
         }
 
         $(".chooseAnswer").click(function() {
@@ -162,7 +157,6 @@ function playGame() {
                 setTimeout(function(){
                     playGame(questionNumber)}, 3000);
             }
-            console.log(chosenAnswer)
         })
             
     }
@@ -218,8 +212,6 @@ function timesUp() {
         playGame(questionNumber)}, 3000);
     $('#question').text("You've missed a timed checkpoint!");
     $('#answers').html('Answer: ' + gameQuestions[questionNumber].answer);
-    console.log(gameQuestions[questionNumber].answer)
-    console.log(gameTimer)
 }
 
 function stopTimer() {
