@@ -35,7 +35,7 @@ $(document).ready(function() {
             question: "Who is the leader of the Red Suns?",
             listedAnswers: ['Shingo Shoji', 'Takumi Fujiwara', 'Ryosuke Takahashi', 'Keisuke Takahashi', 'Wataru Akiyama'],
             answer: "Ryosuke Takahashi",
-            image: 'assets/images/quest3.png'
+            image: 'assets/images/quest3.jpg'
         },
 
         "4": {
@@ -111,6 +111,7 @@ function resetGame() {
 function clearScreen() {
     $("#question").empty();
     $("#answers").empty();
+    $('#images').empty();
 }
 
 //Display Questions
